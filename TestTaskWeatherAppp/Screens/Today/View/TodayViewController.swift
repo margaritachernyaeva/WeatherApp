@@ -53,12 +53,12 @@ class TodayViewController: UIViewController, TodayViewControllerProtocol {
     func updateUI() {
         todayWeatherImageView.image = presenter.getTodayWeatherImage()
         locationNamelabel.text = presenter.getLocationNameText()
-        forecastWeatherLabel.text = "22 | Sunny"
-        humidityLabel.text = "Humidity"
-        precipitationLabel.text = "Precipitation"
-        pressureLabel.text = "Pressure"
-        windSpeedLabel.text = "Wind speed"
-        windDirection.text = "Wind Direction"
+        forecastWeatherLabel.text = presenter.getCurrentWeatherText()
+        humidityLabel.text = presenter.getHumidityText()
+        precipitationLabel.text = presenter.getPrecipitationText()
+        pressureLabel.text = presenter.getPressureText()
+        windSpeedLabel.text = presenter.getWindSpeedText()
+        windDirection.text = presenter.getWindDirectionText()
     }
     
     // MARK: - Private Methods
@@ -178,9 +178,7 @@ class TodayViewController: UIViewController, TodayViewControllerProtocol {
         view.addSubview(todayWeatherImageView)
         todayWeatherImageView.autoSetDimension(.height, toSize: 100)
         todayWeatherImageView.autoSetDimension(.width, toSize: 100)
-        todayWeatherImageView.autoPinEdge(.top, to: .bottom, of: navigationBarView, withOffset: 40)
+        todayWeatherImageView.autoPinEdge(.top, to: .bottom, of: navigationBarView, withOffset: 30)
         todayWeatherImageView.autoAlignAxis(toSuperviewAxis: .vertical)
-        
-        todayWeatherImageView.backgroundColor = .red
     }
 }

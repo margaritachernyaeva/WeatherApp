@@ -10,6 +10,8 @@ import CoreLocation
 
 class LocationManager: NSObject, CLLocationManagerDelegate {
     static let shared = LocationManager()
+    var latitude: Double?
+    var longitude: Double?
     private let cllManager = CLLocationManager()
     private var completion: ((CLPlacemark?) -> Void)?
     
@@ -25,20 +27,22 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
     }
     
     private func convertLocationIntoPlacemark(_ location: CLLocation, completion: @escaping (CLPlacemark) -> Void) {
-            let latitude = location.coordinate.latitude
-            let longitude = location.coordinate.longitude
-            let location = CLLocation(latitude: latitude, longitude: longitude)
-            let geoCoder = CLGeocoder()
-            geoCoder.reverseGeocodeLocation (location) { [weak self] (placemarks, error) in
-                guard let self = self else { return }
-                if let _ = error {
-                    self.completion?(nil)
-                    return
-                }
-                DispatchQueue.main.async {
-                    let placemark = placemarks?.first
-                    self.completion?(placemark)
-                }
+        let latitude = location.coordinate.latitude
+        let longitude = location.coordinate.longitude
+        WeatherManager.latitude = latitude
+        WeatherManager.longitude = longitude
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        let geoCoder = CLGeocoder()
+        geoCoder.reverseGeocodeLocation (location) { [weak self] (placemarks, error) in
+            guard let self = self else { return }
+            if let _ = error {
+                self.completion?(nil)
+                return
+            }
+            DispatchQueue.main.async {
+                let placemark = placemarks?.first
+                self.completion?(placemark)
+            }
         }
     }
 }
@@ -46,6 +50,7 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 // MARK: - CLLocationManagerDelegate
 extension LocationManager {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        cllManager.stopUpdatingLocation()
         guard let location = locations.first else {
             completion?(nil)
             return
@@ -56,7 +61,6 @@ extension LocationManager {
                 self.completion?(placemark)
             }
         }
-        cllManager.stopUpdatingLocation()
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {

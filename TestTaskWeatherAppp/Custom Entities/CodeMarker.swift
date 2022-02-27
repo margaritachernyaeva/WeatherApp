@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CodeDescription: CustomStringConvertible {
+struct CodeMarker: CustomStringConvertible {
 
     // MARK: - Private Data
     private let codeDescription: String

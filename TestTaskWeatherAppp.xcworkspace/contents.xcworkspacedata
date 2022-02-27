@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/chernyaevamargo/Desktop/TestTaskWeatherApp/WeatherApp/TestTaskWeatherAppp/Architecture/DataManager.swift">
+   </FileRef>
+   <FileRef
       location = "group:TestTaskWeatherAppp.xcodeproj">
    </FileRef>
    <FileRef
