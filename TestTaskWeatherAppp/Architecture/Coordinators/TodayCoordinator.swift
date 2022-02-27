@@ -24,7 +24,8 @@ class TodayCoordinator: NavigationCoordinator {
     // MARK: - Private Methods
     private func showTodayViewController() {
         let viewController = TodayViewController()
-        viewController.presenter = TodayViewPresenter(view: viewController)
+        let dataManager = WeatherManager(view: viewController)
+        viewController.presenter = TodayViewPresenter(view: viewController, dataManager: dataManager)
         navigationController.pushViewController(viewController, animated: true)
     }
 }

@@ -13,5 +13,11 @@ protocol TodayViewPresenterProtocol: AnyObject {
     func shareButtonTapped()
     // Getters
     func getTodayWeatherImage() -> UIImage?
-    func getLocationNameText() -> String
+    func getLocationNameText() -> String?
+    func getCurrentWeatherText() -> String?
+    func getHumidityText() -> String?
+    func getPrecipitationText() -> String?
+    func getPressureText() -> String?
+    func getWindSpeedText() -> String?
+    func getWindDirectionText() -> String?
 }
