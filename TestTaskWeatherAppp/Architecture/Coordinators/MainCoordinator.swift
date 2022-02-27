@@ -20,13 +20,13 @@ protocol NavigationCoordinator: Coordinator {
     var navigationController: UINavigationController { get set }
 }
 
-class MainCoordinator: NSObject, TabCoordinator, UITabBarControllerDelegate, CLLocationManagerDelegate {
+class MainCoordinator: NSObject, TabCoordinator, UITabBarControllerDelegate {
     
     // MARK: - Public Data
     var tabBarController: UITabBarController = UITabBarController()
     
     // MARK: - Private Data
-    private let locationManager = CLLocationManager()
+
 
     // MARK: - Initialization
     init(tabBarController: UITabBarController) {
@@ -35,24 +35,9 @@ class MainCoordinator: NSObject, TabCoordinator, UITabBarControllerDelegate, CLL
     
     // MARK: - Public Methods
     func start() {
-        locationManager.delegate = self
-        locationManager.requestLocation()
         let pages: [TabBarPage] = [.today, .forecast]
         let controllers: [UINavigationController] = pages.map({ getTabController($0) })
         prepareTabBarController(withTabControllers: controllers)
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]
-    ) {
-        if let location = locations.first {
-            let latitude = location.coordinate.latitude
-            let longitude = location.coordinate.longitude
-            // Handle location update
-        }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        // TODO: - Handle error
     }
     
     // MARK: - Private Methods
@@ -70,8 +55,9 @@ class MainCoordinator: NSObject, TabCoordinator, UITabBarControllerDelegate, CLL
         tabBarController.tabBar.tintColor = .blue
         tabBarController.tabBar.unselectedItemTintColor = .orange
         tabBarController.tabBar.addShadow()
-
         tabBarController.setViewControllers(tabControllers, animated: true)
         tabBarController.selectedIndex = TabBarPage.today.index()
     }
 }
+
+

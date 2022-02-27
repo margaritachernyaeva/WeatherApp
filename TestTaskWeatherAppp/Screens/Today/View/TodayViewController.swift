@@ -29,9 +29,11 @@ class TodayViewController: UIViewController, TodayViewControllerProtocol {
     private let secondRowOfWeatherDescriptionStackView = UIStackView()
     private let shareButton = UIButton()
     
+    // MARK: - View Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        presenter.viewDidLoad()
         setupViews()
         updateUI()
     }
@@ -42,13 +44,15 @@ class TodayViewController: UIViewController, TodayViewControllerProtocol {
         secondGraySeparator.autoSetDimension(.width, toSize: forecastWeatherLabel.frame.width)
     }
     
+    // MARK: - Actions
     @objc private func shareButtonTapped() {
         presenter.shareButtonTapped()
     }
     
+    // MARK: - Public Methods
     func updateUI() {
         todayWeatherImageView.image = presenter.getTodayWeatherImage()
-        locationNamelabel.text = "India"
+        locationNamelabel.text = presenter.getLocationNameText()
         forecastWeatherLabel.text = "22 | Sunny"
         humidityLabel.text = "Humidity"
         precipitationLabel.text = "Precipitation"
@@ -57,6 +61,7 @@ class TodayViewController: UIViewController, TodayViewControllerProtocol {
         windDirection.text = "Wind Direction"
     }
     
+    // MARK: - Private Methods
     private func setupViews() {
         setup(navigationBarView: navigationBarView, withTitle: "Today")
         setupTodayWeatherImageView()
@@ -147,14 +152,17 @@ class TodayViewController: UIViewController, TodayViewControllerProtocol {
     private func setupLocationLabel() {
         let locationImageView = UIImageView()
         locationImageView.image = UIImage(named: "ic_vector")
+        locationNamelabel.textAlignment = .left
         
         locationNameLabelStackView.addArrangedSubview(locationImageView)
         locationNameLabelStackView.addArrangedSubview(locationNamelabel)
         
         view.addSubview(locationNameLabelStackView)
         
+        locationImageView.autoSetDimension(.width, toSize: 14)
         locationNameLabelStackView.autoSetDimension(.height, toSize: 14)
         locationNameLabelStackView.distribution = .equalCentering
+        locationNameLabelStackView.alignment = .center
         locationNameLabelStackView.spacing = 4
         locationNameLabelStackView.autoAlignAxis(.vertical, toSameAxisOf: todayWeatherImageView)
         locationNameLabelStackView.autoPinEdge(.top, to: .bottom, of: todayWeatherImageView, withOffset: 20)
