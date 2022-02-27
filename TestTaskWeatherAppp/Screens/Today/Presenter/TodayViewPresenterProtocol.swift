@@ -9,7 +9,9 @@ import UIKit
 
 protocol TodayViewPresenterProtocol: AnyObject {
     // Actions
+    func viewDidLoad()
     func shareButtonTapped()
     // Getters
     func getTodayWeatherImage() -> UIImage?
+    func getLocationNameText() -> String
 }

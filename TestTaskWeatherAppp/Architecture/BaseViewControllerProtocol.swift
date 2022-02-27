@@ -21,8 +21,7 @@ extension BaseViewControllerProtocol {
         navigationBarView.autoPinEdge(.top, to: .top, of: view)
         navigationBarView.autoPinEdge(.trailing, to: .trailing, of: view)
         navigationBarView.autoPinEdge(.leading, to: .leading, of: view)
-    }
-    
+    }    
     
     func autoPinEdgeToSuperviewLeftRightEdges(_ view: UIView) {
         view.autoPinEdge(toSuperviewEdge: .left)
