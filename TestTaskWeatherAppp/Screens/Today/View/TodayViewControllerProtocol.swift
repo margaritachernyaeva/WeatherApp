@@ -8,5 +8,5 @@
 import Foundation
 
 protocol TodayViewControllerProtocol: BaseViewControllerProtocol {
-    
+    func showShareController(with text: String)
 }

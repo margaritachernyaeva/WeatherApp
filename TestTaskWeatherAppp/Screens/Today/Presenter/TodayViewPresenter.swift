@@ -48,7 +48,7 @@ class TodayViewPresenter: TodayViewPresenterProtocol {
     }
     
     func shareButtonTapped() {
-        
+        view?.showShareController(with: "Today Forecast: \(forecastMap?.current?.temperature?.toTempratureInCelscious() ?? "")")
     }
     
     func getTodayWeatherImage() -> UIImage? {
