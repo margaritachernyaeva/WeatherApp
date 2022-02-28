@@ -63,7 +63,7 @@ class TodayViewController: UIViewController, TodayViewControllerProtocol {
     
     // MARK: - Private Methods
     private func setupViews() {
-        setup(navigationBarView: navigationBarView, withTitle: "Today")
+        setup(navigationBarView: navigationBarView, withTitle: NSLocalizedString("today_title", comment: ""))
         setupTodayWeatherImageView()
         setupLocationLabel()
         setupForecastWeatherLabel()
@@ -87,7 +87,7 @@ class TodayViewController: UIViewController, TodayViewControllerProtocol {
     }
     
     private func setupShareButton() {
-        shareButton.setTitle("Share", for: .normal)
+        shareButton.setTitle(NSLocalizedString("share_button", comment: ""), for: .normal)
         shareButton.setTitleColor(.orange, for: .normal)
         shareButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
         view?.addSubview(shareButton)

@@ -14,7 +14,6 @@ class TodayViewPresenter: TodayViewPresenterProtocol {
     weak var view: TodayViewControllerProtocol?
 
     // MARK: - Private Data
-    private var placemark: CLPlacemark?
     private let dataManager: WeatherServiceProtocol
     private var forecastMap: ForecastMap?
 
@@ -26,21 +25,24 @@ class TodayViewPresenter: TodayViewPresenterProtocol {
     
     // MARK: - Public Methods
     func viewDidLoad() {
-        LocationManager.shared.currentPlacemark() { [weak self] placemark in
+        guard dataManager.forecastMap != nil else {
+            loadForecast()
+            return
+        }
+        self.forecastMap = dataManager.forecastMap
+    }
+    
+    func loadForecast() {
+        dataManager.getWeatherForecast { [weak self] result in
             guard let self = self else { return }
-            DispatchQueue.main.async {
-                self.placemark = placemark
-                self.dataManager.getCurrentWeather { result in
-                    DispatchQueue.main.async {
-                        switch result {
-                        case .success(let weather):
-                            self.forecastMap = weather
-                            self.view?.updateUI()
-                        case .failure(let error):
-                            self.view?.showErrorAlert(error: error, description: CodeMarker(self, #function, #line), errorMessage: "Failured while getting weather")
-                        }
-                    }
-                }
+            switch result {
+            case .success(let forecastMap):
+                self.forecastMap = forecastMap
+                self.view?.updateUI()
+            case .failure(let error):
+                self.view?.showErrorAlert(error: error,
+                                     description: CodeMarker(self, #function, #line),
+                                     errorMessage: "Couldnt load forecast")
             }
         }
     }
@@ -54,15 +56,12 @@ class TodayViewPresenter: TodayViewPresenterProtocol {
     }
     
     func getLocationNameText() -> String? {
-        guard let city = placemark?.locality else {
-              return " "
-        }
-        return city
+        return dataManager.getPlacemark()?.locality ?? ""
     }
     
     func getCurrentWeatherText() -> String? {
         let temperature = forecastMap?.current?.temperature?.toTempratureInCelscious() ?? ""
-        let weatherDescription = forecastMap?.current?.weather?.first?.main ?? ""
+        let weatherDescription = forecastMap?.current?.weather?.first?.description ?? ""
         return temperature + " | " + weatherDescription
     }
     

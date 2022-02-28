@@ -9,14 +9,14 @@ import Foundation
 
 extension Double {
     func toTempratureInCelscious() -> String {
-        return String(Int(self)) + "°C"
+        return String(Int(self)) + " °C"
     }
     
     func toPrecipitation() -> String {
-        return String(self) + "mm"
+        return String(self) + " mm"
     }
     
     func toWindSpeed() -> String {
-        return String(Int(self)) + "km/h"
+        return String(Int(self)) + " km/h"
     }
 }

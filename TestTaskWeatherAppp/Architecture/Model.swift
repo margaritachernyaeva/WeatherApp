@@ -10,7 +10,7 @@ import Foundation
 struct ForecastMap: Decodable {
     var current: Current?
     var minutely: [MinutelyForecast]?
-//    var hourly: [HourlyForecast]?
+    var hourly: [HourlyForecast]?
 }
 
 struct Current: Decodable {
@@ -32,7 +32,7 @@ struct Current: Decodable {
 }
 
 struct Weather: Decodable {
-    var main: String?
+    var description: String?
     var iconName: String?
     var iconURL: String? {
         guard let iconName = iconName else {
@@ -43,7 +43,7 @@ struct Weather: Decodable {
     
     enum CodingKeys: String, CodingKey {
         case iconName = "icon"
-        case main = "main"
+        case description = "description"
     }
 }
 
@@ -52,6 +52,13 @@ struct MinutelyForecast: Decodable {
 }
 
 struct HourlyForecast: Decodable {
+    var dt : Int?
     var temperature: Double?
-    var weather: Weather?
+    var weather: [Weather]?
+    
+    enum CodingKeys: String, CodingKey {
+        case dt = "dt"
+        case temperature = "temp"
+        case weather = "weather"
+    }
 }

@@ -13,7 +13,7 @@ extension Int {
     }
     
     func toPressure() -> String {
-        return String(self) + "hPa"
+        return String(self) + " hPa"
     }
     
     func windDirection() -> String? {

@@ -29,10 +29,14 @@
 		017ED4BF27CB8CF400BCB576 /* CodeMarker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4BE27CB8CF400BCB576 /* CodeMarker.swift */; };
 		017ED4C427CB915300BCB576 /* CommonError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4C327CB915300BCB576 /* CommonError.swift */; };
 		017ED4C627CBA34F00BCB576 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4C527CBA34F00BCB576 /* LocationManager.swift */; };
-		017ED4CA27CBE3C600BCB576 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4C927CBE3C600BCB576 /* DataManager.swift */; };
-		017ED4CC27CBE8E200BCB576 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4CB27CBE8E200BCB576 /* Models.swift */; };
+		017ED4CA27CBE3C600BCB576 /* WeatherManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4C927CBE3C600BCB576 /* WeatherManager.swift */; };
+		017ED4CC27CBE8E200BCB576 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4CB27CBE8E200BCB576 /* Model.swift */; };
 		017ED4CE27CC177500BCB576 /* Double+WeatherFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4CD27CC177500BCB576 /* Double+WeatherFormats.swift */; };
 		017ED4D027CC195E00BCB576 /* Int+WeatherFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4CF27CC195E00BCB576 /* Int+WeatherFormats.swift */; };
+		017ED4D427CCBFE300BCB576 /* Date+toString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4D327CCBFE300BCB576 /* Date+toString.swift */; };
+		017ED4D627CCC11700BCB576 /* Int+toDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4D527CCC11700BCB576 /* Int+toDate.swift */; };
+		017ED4D827CCCB2A00BCB576 /* Date+DateComponents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 017ED4D727CCCB2A00BCB576 /* Date+DateComponents.swift */; };
+		017ED4E427CCF86600BCB576 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 017ED4E127CCF56E00BCB576 /* Localizable.strings */; };
 		112788FD7FFB2C0FB4639E8B /* Pods_TestTaskWeatherAppp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 29B801ED03A0F1339ECF3792 /* Pods_TestTaskWeatherAppp.framework */; };
 		A46B6B2827C95BD000334B02 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B6B2727C95BD000334B02 /* AppDelegate.swift */; };
 		A46B6B2A27C95BD000334B02 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A46B6B2927C95BD000334B02 /* SceneDelegate.swift */; };
@@ -64,10 +68,16 @@
 		017ED4BE27CB8CF400BCB576 /* CodeMarker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeMarker.swift; sourceTree = "<group>"; };
 		017ED4C327CB915300BCB576 /* CommonError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonError.swift; sourceTree = "<group>"; };
 		017ED4C527CBA34F00BCB576 /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
-		017ED4C927CBE3C600BCB576 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataManager.swift; path = /Users/chernyaevamargo/Desktop/TestTaskWeatherApp/WeatherApp/TestTaskWeatherAppp/Architecture/DataManager.swift; sourceTree = "<absolute>"; };
-		017ED4CB27CBE8E200BCB576 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		017ED4C927CBE3C600BCB576 /* WeatherManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WeatherManager.swift; path = /Users/chernyaevamargo/Desktop/TestTaskWeatherApp/WeatherApp/TestTaskWeatherAppp/Architecture/WeatherManager.swift; sourceTree = "<absolute>"; };
+		017ED4CB27CBE8E200BCB576 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		017ED4CD27CC177500BCB576 /* Double+WeatherFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Double+WeatherFormats.swift"; sourceTree = "<group>"; };
 		017ED4CF27CC195E00BCB576 /* Int+WeatherFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+WeatherFormats.swift"; sourceTree = "<group>"; };
+		017ED4D327CCBFE300BCB576 /* Date+toString.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+toString.swift"; sourceTree = "<group>"; };
+		017ED4D527CCC11700BCB576 /* Int+toDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+toDate.swift"; sourceTree = "<group>"; };
+		017ED4D727CCCB2A00BCB576 /* Date+DateComponents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+DateComponents.swift"; sourceTree = "<group>"; };
+		017ED4E027CCF56E00BCB576 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		017ED4E227CCF5A400BCB576 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		017ED4E327CCF5A500BCB576 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		29B801ED03A0F1339ECF3792 /* Pods_TestTaskWeatherAppp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TestTaskWeatherAppp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		40F33981BF6D6B1B93CE8FEC /* Pods-TestTaskWeatherAppp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTaskWeatherAppp.release.xcconfig"; path = "Target Support Files/Pods-TestTaskWeatherAppp/Pods-TestTaskWeatherAppp.release.xcconfig"; sourceTree = "<group>"; };
 		43B49EA1EC97699BE5E9B981 /* Pods-TestTaskWeatherAppp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TestTaskWeatherAppp.debug.xcconfig"; path = "Target Support Files/Pods-TestTaskWeatherAppp/Pods-TestTaskWeatherAppp.debug.xcconfig"; sourceTree = "<group>"; };
@@ -162,10 +172,13 @@
 			children = (
 				017440C127CA3CA3006AA6AA /* Array+Safe.swift */,
 				017440C527CA7B61006AA6AA /* UIView+addShadow.swift */,
+				017ED4D327CCBFE300BCB576 /* Date+toString.swift */,
+				017ED4D727CCCB2A00BCB576 /* Date+DateComponents.swift */,
 				017440CB27CAA370006AA6AA /* UIView+AutoPinEdges.swift */,
 				017ED4BC27CB8C2400BCB576 /* UIViewController+ErrorAlert.swift */,
 				017ED4CD27CC177500BCB576 /* Double+WeatherFormats.swift */,
 				017ED4CF27CC195E00BCB576 /* Int+WeatherFormats.swift */,
+				017ED4D527CCC11700BCB576 /* Int+toDate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -173,6 +186,7 @@
 		017ED4C027CB8DDD00BCB576 /* Custom Entities */ = {
 			isa = PBXGroup;
 			children = (
+				A46B6B2B27C95BD000334B02 /* TabBarViewController.swift */,
 				017ED4BE27CB8CF400BCB576 /* CodeMarker.swift */,
 				017440C927CA9F02006AA6AA /* SeparatorView.swift */,
 				017ED4C327CB915300BCB576 /* CommonError.swift */,
@@ -194,13 +208,29 @@
 			isa = PBXGroup;
 			children = (
 				017440B527CA0F0B006AA6AA /* BaseViewControllerProtocol.swift */,
-				017ED4C927CBE3C600BCB576 /* DataManager.swift */,
-				017ED4CB27CBE8E200BCB576 /* Models.swift */,
-				A46B6B2B27C95BD000334B02 /* TabBarViewController.swift */,
-				017ED4C527CBA34F00BCB576 /* LocationManager.swift */,
+				017ED4CB27CBE8E200BCB576 /* Model.swift */,
 				017440B727CA1391006AA6AA /* Coordinators */,
 			);
 			path = Architecture;
+			sourceTree = "<group>";
+		};
+		017ED4D127CC27CA00BCB576 /* App Life Cycle */ = {
+			isa = PBXGroup;
+			children = (
+				017ED4E127CCF56E00BCB576 /* Localizable.strings */,
+				A46B6B2727C95BD000334B02 /* AppDelegate.swift */,
+				A46B6B2927C95BD000334B02 /* SceneDelegate.swift */,
+			);
+			path = "App Life Cycle";
+			sourceTree = "<group>";
+		};
+		017ED4D227CC27E900BCB576 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				017ED4C527CBA34F00BCB576 /* LocationManager.swift */,
+				017ED4C927CBE3C600BCB576 /* WeatherManager.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		1568A50740D6629E54D10B91 /* Pods */ = {
@@ -233,9 +263,9 @@
 		A46B6B2627C95BD000334B02 /* TestTaskWeatherAppp */ = {
 			isa = PBXGroup;
 			children = (
-				A46B6B2727C95BD000334B02 /* AppDelegate.swift */,
-				A46B6B2927C95BD000334B02 /* SceneDelegate.swift */,
+				017ED4D127CC27CA00BCB576 /* App Life Cycle */,
 				017ED4C227CB8EA800BCB576 /* Architecture */,
+				017ED4D227CC27E900BCB576 /* Services */,
 				017ED4C027CB8DDD00BCB576 /* Custom Entities */,
 				017440C027CA3C87006AA6AA /* Extensions */,
 				017ED4C127CB8E8200BCB576 /* Screens */,
@@ -298,6 +328,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = A46B6B1B27C95BD000334B02;
 			productRefGroup = A46B6B2527C95BD000334B02 /* Products */;
@@ -315,6 +346,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A46B6B3427C95BD800334B02 /* LaunchScreen.storyboard in Resources */,
+				017ED4E427CCF86600BCB576 /* Localizable.strings in Resources */,
 				A46B6B3127C95BD800334B02 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				017440C827CA810F006AA6AA /* HourForecastTableViewCell.swift in Sources */,
+				017ED4D827CCCB2A00BCB576 /* Date+DateComponents.swift in Sources */,
 				017440A627CA0E1D006AA6AA /* ForecastViewPresenter.swift in Sources */,
 				017ED4C627CBA34F00BCB576 /* LocationManager.swift in Sources */,
 				017440CA27CA9F02006AA6AA /* SeparatorView.swift in Sources */,
@@ -379,12 +412,14 @@
 				017ED4C427CB915300BCB576 /* CommonError.swift in Sources */,
 				A46B6B2C27C95BD000334B02 /* TabBarViewController.swift in Sources */,
 				017440C627CA7B61006AA6AA /* UIView+addShadow.swift in Sources */,
-				017ED4CA27CBE3C600BCB576 /* DataManager.swift in Sources */,
+				017ED4CA27CBE3C600BCB576 /* WeatherManager.swift in Sources */,
 				017440A027CA0DED006AA6AA /* TodayViewController.swift in Sources */,
 				A46B6B2827C95BD000334B02 /* AppDelegate.swift in Sources */,
 				017440AC27CA0E54006AA6AA /* TodayViewPresenterProtocol.swift in Sources */,
+				017ED4D427CCBFE300BCB576 /* Date+toString.swift in Sources */,
 				017440B927CA13AD006AA6AA /* TodayCoordinator.swift in Sources */,
 				017ED4CE27CC177500BCB576 /* Double+WeatherFormats.swift in Sources */,
+				017ED4D627CCC11700BCB576 /* Int+toDate.swift in Sources */,
 				017ED4BF27CB8CF400BCB576 /* CodeMarker.swift in Sources */,
 				017440AA27CA0E47006AA6AA /* ForecastViewControllerProtocol.swift in Sources */,
 				A46B6B2A27C95BD000334B02 /* SceneDelegate.swift in Sources */,
@@ -394,7 +429,7 @@
 				017ED4BD27CB8C2400BCB576 /* UIViewController+ErrorAlert.swift in Sources */,
 				017ED4D027CC195E00BCB576 /* Int+WeatherFormats.swift in Sources */,
 				017440A227CA0E01006AA6AA /* ForecastViewController.swift in Sources */,
-				017ED4CC27CBE8E200BCB576 /* Models.swift in Sources */,
+				017ED4CC27CBE8E200BCB576 /* Model.swift in Sources */,
 				017440CC27CAA370006AA6AA /* UIView+AutoPinEdges.swift in Sources */,
 				017440B627CA0F0B006AA6AA /* BaseViewControllerProtocol.swift in Sources */,
 			);
@@ -403,10 +438,21 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		017ED4E127CCF56E00BCB576 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				017ED4E027CCF56E00BCB576 /* en */,
+				017ED4E327CCF5A500BCB576 /* ru */,
+			);
+			name = Localizable.strings;
+			path = "/Users/chernyaevamargo/Desktop/TestTaskWeatherApp/WeatherApp/TestTaskWeatherAppp/App Life Cycle";
+			sourceTree = "<absolute>";
+		};
 		A46B6B3227C95BD800334B02 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				A46B6B3327C95BD800334B02 /* Base */,
+				017ED4E227CCF5A400BCB576 /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -418,6 +464,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -479,6 +526,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

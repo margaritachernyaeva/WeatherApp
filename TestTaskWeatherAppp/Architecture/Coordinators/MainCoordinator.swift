@@ -25,12 +25,13 @@ class MainCoordinator: NSObject, TabCoordinator, UITabBarControllerDelegate {
     // MARK: - Public Data
     var tabBarController: UITabBarController = UITabBarController()
     
-    // MARK: - Private Data
-
+    // MARK: - Private data
+    let weatherService: WeatherServiceProtocol
 
     // MARK: - Initialization
     init(tabBarController: UITabBarController) {
         self.tabBarController = tabBarController
+        weatherService = WeatherManager(view: tabBarController)
     }
     
     // MARK: - Public Methods
@@ -44,7 +45,7 @@ class MainCoordinator: NSObject, TabCoordinator, UITabBarControllerDelegate {
     private func getTabController(_ page: TabBarPage) -> UINavigationController {
         let navigationController = UINavigationController()
         navigationController.tabBarItem = UITabBarItem(title: nil, image: page.pageIcon(), tag: page.index())
-        page.startCoordinator(navigationController: navigationController)
+        page.startCoordinator(navigationController: navigationController, weatherService: weatherService)
         return navigationController
     }
     
