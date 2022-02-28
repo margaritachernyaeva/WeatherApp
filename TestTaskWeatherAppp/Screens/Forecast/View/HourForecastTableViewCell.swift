@@ -8,8 +8,11 @@
 import UIKit
 
 struct HourForecastCellModel {
-    let dayOfMonth: String
-    let dayOfWeek: String
+    var image: UIImage?
+    var time: String?
+    var forecast: String?
+    var celsius: String?
+    var isSeparatorHidden: Bool
 }
 
 class HourForecastTableViewCell: UITableViewCell {
@@ -21,6 +24,7 @@ class HourForecastTableViewCell: UITableViewCell {
     private let forecastTextLabel = UILabel()
     private let celsiusLabel = UILabel()
     private let infoStackView = UIStackView()
+    private let separator = UIView()
     
     //MARK: -  Initialization
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -36,10 +40,22 @@ class HourForecastTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure() {
-        timeLabel.text = "13:00"
-        forecastTextLabel.text = "Sunny dcjdncjdvjdjnjdncijicijsji"
-        celsiusLabel.text = "22 K"
+    // MARK: - Public Methods
+    func configure(_ model: HourForecastCellModel) {
+        forecastImageView.image = model.image
+        timeLabel.text = model.time
+        forecastTextLabel.text = model.forecast
+        celsiusLabel.text = model.celsius
+        separator.isHidden = model.isSeparatorHidden
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        forecastImageView.image = nil
+        timeLabel.text = nil
+        forecastTextLabel.text = nil
+        celsiusLabel.text = nil
+        
     }
     
     // MARK: - Private Methods
@@ -51,7 +67,6 @@ class HourForecastTableViewCell: UITableViewCell {
     }
     
     private func setupSeparator() {
-        let separator = UIView()
         contentView.addSubview(separator)
         separator.backgroundColor = .lightGray
         separator.autoSetDimension(.height, toSize: 0.5)
@@ -62,7 +77,7 @@ class HourForecastTableViewCell: UITableViewCell {
     
     private func setupCelsiusLabel() {
         celsiusLabel.autoMatch(.height, to: .height, of: forecastImageView)
-        celsiusLabel.autoPinEdge(.right, to: .right, of: contentView, withOffset: -16)
+        celsiusLabel.autoPinEdge(.right, to: .right, of: contentView, withOffset: -14)
         celsiusLabel.autoAlignAxis(toSuperviewAxis: .horizontal)
         celsiusLabel.autoPinEdge(.left, to: .right, of: infoStackView, withOffset: 14)
         celsiusLabel.textAlignment = .right
@@ -81,9 +96,9 @@ class HourForecastTableViewCell: UITableViewCell {
     }
     
     private func setupImageView() {
-        forecastImageView.autoPinEdge(.top, to: .top, of: contentView, withOffset: 16)
-        forecastImageView.autoPinEdge(.bottom, to: .bottom, of: contentView, withOffset: -16)
-        forecastImageView.autoPinEdge(.left, to: .left, of: contentView, withOffset: 16)
+        forecastImageView.autoPinEdge(.top, to: .top, of: contentView, withOffset: 14)
+        forecastImageView.autoPinEdge(.bottom, to: .bottom, of: contentView, withOffset: -14)
+        forecastImageView.autoPinEdge(.left, to: .left, of: contentView, withOffset: 14)
         forecastImageView.autoMatch(.width, to: .height, of: forecastImageView, withMultiplier: 1)
     }
 }

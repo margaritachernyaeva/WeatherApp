@@ -8,6 +8,12 @@
 import Foundation
 
 protocol ForecastViewPresenterProtocol: AnyObject {
+    //Actions
+    func viewDidLoad()
+    //Getters
     func getNavigationBarTitle() -> String?
-    func cellCount() -> Int
+    func cellCount(for section: Int) -> Int
+    func numberOfSections() -> Int
+    func getCellModel(for indexPath: IndexPath) -> HourForecastCellModel
+    func getTitle(for section: Int) -> String?
 }

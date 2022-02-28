@@ -48,13 +48,13 @@ enum TabBarPage {
         }
     }
     
-    func startCoordinator(navigationController: UINavigationController) {
+    func startCoordinator(navigationController: UINavigationController, weatherService: WeatherServiceProtocol) {
         var coordinator: NavigationCoordinator
         switch self {
         case .today:
-            coordinator = TodayCoordinator(navigationController: navigationController)
+            coordinator = TodayCoordinator(navigationController: navigationController, weatherService: weatherService)
         case .forecast:
-            coordinator = ForecastCoordinator(navigationController: navigationController)
+            coordinator = ForecastCoordinator(navigationController: navigationController, weatherService: weatherService)
         }
         coordinator.start()
     }

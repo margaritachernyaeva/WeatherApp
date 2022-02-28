@@ -20,7 +20,12 @@ class ForecastViewController: UIViewController, ForecastViewControllerProtocol, 
     override func viewDidLoad() {
         super.viewDidLoad()
         view?.backgroundColor = .orange
+        presenter.viewDidLoad()
         setupViews()
+    }
+    
+    func updateUI() {
+        tableView.reloadData()
     }
     
     private func setupViews() {
@@ -48,7 +53,7 @@ class ForecastViewController: UIViewController, ForecastViewControllerProtocol, 
     // MARK: - UITableViewDelegate && UITableViewDataSource
 extension ForecastViewController {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return presenter.numberOfSections()
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -64,7 +69,7 @@ extension ForecastViewController {
         view.addSubview(topSeparator)
         view.addSubview(bottomSeparator)
         view.addSubview(title)
-        title.text = "TODAY"
+        title.text = presenter.getTitle(for: section)
         title.textColor = .gray
         title.autoPinEdge(.left, to: .left, of: view, withOffset: 16)
         title.autoAlignAxis(toSuperviewAxis: .horizontal)
@@ -77,7 +82,7 @@ extension ForecastViewController {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: HourForecastTableViewCell.cellIdentificator, for: indexPath) as? HourForecastTableViewCell {
-            cell.configure()
+            cell.configure(presenter.getCellModel(for: indexPath))
             cell.selectionStyle = .none
             return cell
         }
@@ -85,6 +90,6 @@ extension ForecastViewController {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return presenter.cellCount()
+        return presenter.cellCount(for: section)
     }
 }

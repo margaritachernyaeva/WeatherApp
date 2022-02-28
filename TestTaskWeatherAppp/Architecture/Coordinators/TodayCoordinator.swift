@@ -10,10 +10,12 @@ import UIKit
 class TodayCoordinator: NavigationCoordinator {
     // MARK: - Public Data
     var navigationController: UINavigationController
+    let weatherService: WeatherServiceProtocol
     
     // MARK: - Initialization
-    init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController, weatherService: WeatherServiceProtocol) {
         self.navigationController = navigationController
+        self.weatherService = weatherService
     }
     
     // MARK: - Public Methods
@@ -24,8 +26,7 @@ class TodayCoordinator: NavigationCoordinator {
     // MARK: - Private Methods
     private func showTodayViewController() {
         let viewController = TodayViewController()
-        let dataManager = WeatherManager(view: viewController)
-        viewController.presenter = TodayViewPresenter(view: viewController, dataManager: dataManager)
+        viewController.presenter = TodayViewPresenter(view: viewController, dataManager: weatherService)
         navigationController.pushViewController(viewController, animated: true)
     }
 }
