@@ -74,7 +74,7 @@ class ForecastViewPresenter: ForecastViewPresenterProtocol {
                 self.createSections()
                 self.view?.updateUI()
             case .failure(let error):
-                self.view?.showErrorAlert(error: error,
+                self.view?.showErrorAlertWithLog(error: error,
                                      description: CodeMarker(self, #function, #line),
                                      errorMessage: "Couldnt load forecast")
             }
@@ -111,7 +111,6 @@ class ForecastViewPresenter: ForecastViewPresenterProtocol {
     // MARK: - Private Methods
     private func createSections() {
         let groups = Dictionary(grouping: forecasts) { $0.date?.dayOfWeek() }
-        print(groups)
         sections = groups.values.map { forecasts in
             var sortedForecasts = forecasts
             sortedForecasts.sort { (lForecast, rForecast) -> Bool in

@@ -40,7 +40,7 @@ class TodayViewPresenter: TodayViewPresenterProtocol {
                 self.forecastMap = forecastMap
                 self.view?.updateUI()
             case .failure(let error):
-                self.view?.showErrorAlert(error: error,
+                self.view?.showErrorAlertWithLog(error: error,
                                      description: CodeMarker(self, #function, #line),
                                      errorMessage: "Couldnt load forecast")
             }
