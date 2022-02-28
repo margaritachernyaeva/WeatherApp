@@ -5,3 +5,7 @@ SETUP:
 
 Bug report: 
 - second view controller: first TWO sections have the same title. 
+
+Have to be fixed:
+- error handling
+- internet handling
