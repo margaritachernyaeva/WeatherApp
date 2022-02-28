@@ -29,9 +29,9 @@ class MainCoordinator: NSObject, TabCoordinator, UITabBarControllerDelegate {
     let weatherService: WeatherServiceProtocol
 
     // MARK: - Initialization
-    init(tabBarController: UITabBarController) {
+    init(tabBarController: UITabBarController, weatherService: WeatherServiceProtocol) {
         self.tabBarController = tabBarController
-        weatherService = WeatherManager(view: tabBarController)
+        self.weatherService = weatherService
     }
     
     // MARK: - Public Methods

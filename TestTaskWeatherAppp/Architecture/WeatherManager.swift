@@ -21,11 +21,10 @@ class WeatherManager: WeatherServiceProtocol {
     private var placemark: CLPlacemark?
     
     // MARK: - Private Data
-    private let apiKey = "11a0a683004a18c77c59b1f3ea862ff8"
+    private let apiKey = APIKey
     private var apiURL: String {
         let langStr = Locale.current.languageCode
         let url = "https://api.openweathermap.org/data/2.5/onecall?lat=\(latitude)&lon=\(longitude)&units=metric&lang=\(langStr ?? "")&appid=\(apiKey)"
-        print(url)
         return url
     }
     private var latitude: String {

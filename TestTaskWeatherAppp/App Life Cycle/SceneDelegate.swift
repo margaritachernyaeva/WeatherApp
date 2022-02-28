@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window?.rootViewController = tabBarController
         window?.makeKeyAndVisible()
         window?.windowScene = windowScene
-        let mainCoordinator = MainCoordinator(tabBarController: tabBarController)
+        let weatherService = WeatherManager(view: tabBarController)
+        let mainCoordinator = MainCoordinator(tabBarController: tabBarController, weatherService: weatherService)
         mainCoordinator.start()
     }
 
