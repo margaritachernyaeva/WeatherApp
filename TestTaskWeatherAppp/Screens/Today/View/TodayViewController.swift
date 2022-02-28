@@ -33,6 +33,7 @@ class TodayViewController: UIViewController, TodayViewControllerProtocol {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
+        shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
         presenter.viewDidLoad()
         setupViews()
         updateUI()
@@ -45,8 +46,14 @@ class TodayViewController: UIViewController, TodayViewControllerProtocol {
     }
     
     // MARK: - Actions
-    @objc private func shareButtonTapped() {
+    @objc func shareButtonTapped() {
         presenter.shareButtonTapped()
+    }
+    
+    func showShareController(with text: String) {
+        let objectsToShare: [Any] = [text]
+        let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
+        present(activityVC, animated: true, completion: nil)
     }
     
     // MARK: - Public Methods
@@ -95,8 +102,6 @@ class TodayViewController: UIViewController, TodayViewControllerProtocol {
         shareButton.autoPinEdge(toSuperviewSafeArea: .bottom, withInset: 20)
         shareButton.autoAlignAxis(toSuperviewAxis: .vertical)
         shareButton.autoSetDimension(.height, toSize: 24)
-        
-        shareButton.addTarget(self, action: #selector(shareButtonTapped), for: .touchUpInside)
     }
     
     private func setupWeatherDescriptionLabels() {
